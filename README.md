@@ -1,11 +1,12 @@
 # StackyFi_Software
 
-<img src= "https://cdn.shopify.com/s/files/1/1217/2104/files/Main_Banner_3.png?v=1729493200" />
+<img src= "https://github.com/sbcshop/StackyFi_Software/blob/main/images/StackyFi_main_Banner.png" />
+StackyFi is an innovative standalone mini-controller board designed with the Raspberry Pi Zero physical factor and powered by the powerful ESP32-S3 WROOM 1 microcontroller. StackyFi eliminates the requirement for a Raspberry Pi board by effortlessly supporting most Raspberry Pi HATs, allowing you to stack them directly on its tiny frame. The device includes an integrated 6D MEMS IMU, RGB LED, camera integration, and wireless connectivity such as WiFi and Bluetooth® 5 (LE). StackyFi is ideal for your next-generation IoT prototype projects, spanning from smart home applications to security and surveillance systems.
 
 This GitHub provides getting started instructions to use StackyFi board.
 
 ### Features
-- Powered by ESP32 S3 which is having Dual-core Arm Cortex-M0+ processor, flexible running up to 133 MHz
+- Powered by ESP32 S3 Wroom-1 microcontroller module
 - Its WiFi/BLE capabilities make it suited for a variety of IoT applications
 - Standard 40-pin GPIO header to accommodate most Raspberry Pi-compatible HATs.
 - CSI camera connectors provide versatile connectivity for camera modules, making them suited for a variety of imaging applications
@@ -17,29 +18,23 @@ This GitHub provides getting started instructions to use StackyFi board.
 - Both Serial and Native USB are available as Type C
 - Boot and Reset Buttons for programming purposes
 
-<!--
+
 ## Specification:
 - **Microcontroller**  : ESP32-S3 series of SoCs having Xtensa® dual-core 32-bit LX7 microprocessor
 - **Connectivity** : 2.4 GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5 (LE)
 - **Memory** : Flash up to 16 MB, PSRAM up to 8 MB
+- **Working mode** : Support STA/AP/STA+AP 
 - **Board Supply Voltage** : 5V 
 - **Operating Pin Voltage** : 3.3V 
-- **GPIOs connector** : JST-SH-1MM-8 pin
-- **RTC module**: DS3231 
-- **Coin Cell Holder** : Supports CR1220 3V Battery
+- **6D MEMS IMU** : QMI8658 (3-axis accelerometer, 3-axis gyroscope)
 - **Battery Connector** : Supports 3.7V Lithium ion battery  
-- **Battery Charge Management** : MCP73831
 - **RGB LED** : WS2812B
-- **Working Temperature** : 0°C ~ +40°C 
-- **E-Paper Display** =>
-  - **E-paper Size** : 7.5"
-  - **Resolution** : 800x480
-  - **Color** : Red, Black and White
-  - **Interface** : SPI
-  - **Driver** : UC8179
-
-
-## Getting Started with EnkFi 7.5" Board
+- **Camera Compatible** : OV2640 Camera Module 2MP
+- **Additional Storage** : TFcard support
+- **Working Temperature** : -20°C ~ +70°C
+  
+<!--
+## Getting Started with StackyFi
 ### Pinout
 <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/EnkFi_7.5_pinout.png" />
 
@@ -107,6 +102,7 @@ This GitHub provides getting started instructions to use StackyFi board.
   |IO40 | I/O/T | MTDO,**_GPIO40_**,CLK_OUT2 |
 
   *I-INPUT, O-OUTPUT, P-POWER & T-HIGH IMPEDENCE
+-->
   
 ### 1. Configure and Setup Development Environment
    - Download Arduino IDE from [official site](https://www.arduino.cc/en/software) and install into your system. We have use Arduino IDE 1.8.19
@@ -125,7 +121,7 @@ This GitHub provides getting started instructions to use StackyFi board.
    
    - You have two options to program onboard ESP32 of EnkFi board, **_UART USB_** OR **_Native USB_**.
 
-     <img src="https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/usb_options.png" width="372" height="214">   
+     <img src="https://github.com/sbcshop/StackyFi_Software/blob/main/images/usb_options.jpg" width="213" height="118">   
    
    - When using Native ESP USB, you will have to press BOOT button once and then connect Type C. For UART USB no need, directly connect USB.
    
@@ -146,11 +142,12 @@ This GitHub provides getting started instructions to use StackyFi board.
         
 ### 2. Installing Libraries
    - When compiling sample codes there are some dependency on external libraries sometime which you can add as shown here.
-   - RTC library for testing DS3231, select Sketch > Include Library > Manage Libraries. Install RTClib version 2.1.4,
+   - for example installing library for RGB LED and IMU sensor, select Sketch > Include Library > Manage Libraries. Install RTClib version 2.1.4,
 
      <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/Lib_install.png" />
 
-     <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/RTClib_install_1.png" />
+     <img src= "https://github.com/sbcshop/StackyFi_Software/blob/main/images/fastLED_lib.png" width="583" height="310" />
+     <img src= "https://github.com/sbcshop/StackyFi_Software/blob/main/images/sensorlib.png" width="589" height="217" />
 
    - Similarly you can add more libraries if needed, make sure to install correct version. 
 
@@ -162,14 +159,11 @@ This GitHub provides getting started instructions to use StackyFi board.
    - Checkout other examples below and build your own custom program codes using those references.
 
 ### Example Codes
-   - [Example 1](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples/Demo_Buzzer_Button) : Onboard Button and Buzzer Testing 
-   - [Example 2](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples/Demo_GraphicsDisplay) : Create Graphics like line, circle, etc. on EnkFi E-Paper display
-   - [Example 3](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples/Demo_ImageDisplay) : Image display demo, follow instructions [here](https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/documents/Image%20to%20Arduino%20Byte%20Conversion.pdf) to create your own array image to use with code.   
-   - and [Many more...](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples)
+   - [Example 1]() : 
+   - [Example 2]() : 
 
    Now you are ready to try out your own codes, **_Happy Coding!_**
 
--->
 ## Resources
   * [Schematic](https://github.com/sbcshop/StackyFi_Hardware/blob/main/Design%20Data/StackyFi%20SCH.pdf)
   * [Hardware Files](https://github.com/sbcshop/StackyFi_Hardware)
@@ -181,6 +175,10 @@ This GitHub provides getting started instructions to use StackyFi board.
        
 
 ## Related Products  
+
+  * [RFID HAT](https://shop.sb-components.co.uk/products/zero-relay-2-channel-5v-relay-board-for-raspberry-pi)
+
+    ![RFID HAT](https://shop.sb-components.co.uk/cdn/shop/files/1_37.png?v=1727765023&width=150)
   
   * [1.28 Round Touch LCD HAT](https://shop.sb-components.co.uk/products/1-28-round-touch-lcd-hat-for-raspberry-pi)
 
@@ -194,11 +192,11 @@ This GitHub provides getting started instructions to use StackyFi board.
 
     ![zero-barcode-hat](https://shop.sb-components.co.uk/cdn/shop/products/0.jpg?v=1669181323&width=150)
     
-  * [RFID HAT](https://shop.sb-components.co.uk/products/rfid-hat-for-raspberry-pi)
+  * [Zero Barcode HAT](https://shop.sb-components.co.uk/products/stackypi)
 
-    ![RFID HAT](https://shop.sb-components.co.uk/cdn/shop/products/RFIDforPi.jpg?v=1614587676&width=150)
+    ![zero-barcode-hat](https://shop.sb-components.co.uk/cdn/shop/products/StackyPi.png?v=1648531908&width=150)
 
-
+    
 ## Product License
 
 This is ***open source*** product. Kindly check LICENSE.md file for more information.
