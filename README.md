@@ -46,19 +46,9 @@ This GitHub provides getting started instructions to use StackyFi board.
 |(4) E-paper connector  | (10) Native USB (USB_D+/USB_D-) | (16) Programmable Buttons  |
 |(5) DS3231 RTC         | (11) Serial USB                 | (17) 7.5” E-Paper Display |
 |(6) Coin Cell Holder   | (12) ESP32 S3 WROOM-1           | |
-  
-### Interfacing Details
-  
-- **_E-Paper Display interfacing with ESP32_**
+-->
 
-  | ESP32 | Display | Function |
-  |---|---|---|
-  | IO12 | DISPLAY_SCK_PIN  | Clock pin of SPI interface for E-Paper Display |
-  | IO11 | DISPLAY_MOSI_PIN | MOSI (Master OUT Slave IN) pin of SPI interface|
-  | IO13 | DISPLAY_DC_PIN   | Data/Command (MISO) pin of SPI interface |
-  | IO10 | DISPLAY_CS_PIN   | Chip Select pin of SPI interface|
-  | IO21 | DISPLAY_BUSY_PIN | Busy Status pin of E-Paper |
-  | IO14 | DISPLAY_RST_PIN  | Display Reset pin |
+### Interfacing Details
 
  - **_SDcard Interface_**
 
@@ -69,40 +59,40 @@ This GitHub provides getting started instructions to use StackyFi board.
    | IO41 | CARD_MISO  | MISO (Master IN Slave OUT) pin of SPI interface|
    | IO1  | CARD_CS  | Chip Select pin of SPI interface|
 
-- **_Buzzer and Buttons Interfacing_**
+- **_RGB LED and Buttons Interfacing_**
 
   | ESP32 | Hardware | Function |
-  |---|---|---|
-  |IO15 | Buzzer |Buzzer Positive Pin |  
+  |---|---|---| 
   |IO0 | BOOT |Boot button |
-  |IO4 | BT1 | Programmable Button |
-  |IO5 | BT2 | Programmable Button |
-  |IO6 | BT3 | Programmable Button |
-  |IO7 | BT4 | Programmable Button |
+  |IO45 | DIN | WS2812B RGB LED|
 
-- **_DS3231 RTC interfacing with ESP32 using I2C_** 
+- **_QMI8658 IMU interfacing with ESP32 using I2C_** 
 
-  | ESP32 | DS3231 | Description | 
+  | ESP32 | IMU | Description | 
   |---|---|---|
   | IO38 | SDA | I2C Serial Data Pin |
   | IO39 | SCL | I2C Serial Clock Pin |
 
-- **_GPIOs Breakout_**
+- **_Camera interfacing with ESP32_** - Following pins consumed when camera connected with StackyFi, 
+  | ESP32 | Camera | Function |
+  |---|---|---|
+  | IO4 | SDA  | SCCB Serial interface Data I/O |
+  | IO5 | SCL | SCCB Serial interface Data I/O |
+  | IO6 | VSYNC | Vertical Synchronization Output |
+  | IO7 | HREF | Horizontal Reference Output |
+  | IO13 | PCLK   | Pixel Clock Output  |
+  | IO15 | XCLK  | System Clock Input |
+  | IO16 | Y9 | Video Port Output bit[9] |
+  | IO17 | Y8  | Video Port Output bit[8] |
+  | IO18 | Y7 | Video Port Output bit[7] |
+  | IO12 | Y6   | Video Port Output bit[6] |
+  | IO10 | Y5  | Video Port Output bit[5] |
+  | IO8 | Y4  | Video Port Output bit[4] |
+  | IO9 | Y3 | Video Port Output bit[3] |
+  | IO11 | Y2 | Video Port Output bit[2]  |
+  
+- **_40Pin Standard Header Pin Mapping_**
 
-  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
-  |---|---|---|    
-  |3V3  | P     | Positive Supply, 3.3V |
-  |5V   | P     | Positive Supply, 5V |
-  |GND  | P     | Supply Ground |
-  |TX   | I/O/T | RTC_GPIO17,**_GPIO17_**,U1TXD,ADC2_CH6 |
-  |RX   | I/O/T | RTC_GPIO18,**_GPIO18_**,U1RXD,ADC2_CH7,CLK_OUT3 |
-  |IO8  | I/O/T | RTC_GPIO8, _**GPIO8**_ , TOUCH8, ADC1_CH7, SUBSPICS1  |  
-  |IO9  | I/O/T | RTC_GPIO9,**_GPIO9_**,TOUCH9,ADC1_CH8,FSPIHD,SUBSPIHD |
-  |IO16 | I/O/T | RTC_GPIO16,**_GPIO16_**,U0CTS,ADC2_CH5,XTAL_32K_N |
-  |IO40 | I/O/T | MTDO,**_GPIO40_**,CLK_OUT2 |
-
-  *I-INPUT, O-OUTPUT, P-POWER & T-HIGH IMPEDENCE
--->
   
 ### 1. Configure and Setup Development Environment
    - Download Arduino IDE from [official site](https://www.arduino.cc/en/software) and install into your system. We have use Arduino IDE 1.8.19
@@ -142,7 +132,7 @@ This GitHub provides getting started instructions to use StackyFi board.
         
 ### 2. Installing Libraries
    - When compiling sample codes there are some dependency on external libraries sometime which you can add as shown here.
-   - for example installing library for RGB LED and IMU sensor, select Sketch > Include Library > Manage Libraries. Install RTClib version 2.1.4,
+   - for example installing library for RGB LED and IMU sensor, select Sketch > Include Library > Manage Libraries. Install FastLED version 3.6.0 and SensorLib version 0.1.9,
 
      <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/Lib_install.png" />
 
@@ -153,7 +143,7 @@ This GitHub provides getting started instructions to use StackyFi board.
 
 
 ### 3. Testing First Code
-   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/EnkFi_7.5_Software/tree/main/examples) in github which you can download and try. 
+   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/StackyFi_Software/tree/main/examples) in github which you can download and try. 
    - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on EnkFi board.
      <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/upload_process.gif">
    - Checkout other examples below and build your own custom program codes using those references.
@@ -161,6 +151,7 @@ This GitHub provides getting started instructions to use StackyFi board.
 ### Example Codes
    - [Example 1]() : 
    - [Example 2]() : 
+   - [Example 3]() :  and more [here](https://github.com/sbcshop/StackyFi_Software/tree/main/examples)
 
    Now you are ready to try out your own codes, **_Happy Coding!_**
 
@@ -176,9 +167,9 @@ This GitHub provides getting started instructions to use StackyFi board.
 
 ## Related Products  
 
-  * [RFID HAT](https://shop.sb-components.co.uk/products/zero-relay-2-channel-5v-relay-board-for-raspberry-pi)
+  * [2 Channel Relay HAT](https://shop.sb-components.co.uk/products/zero-relay-2-channel-5v-relay-board-for-raspberry-pi)
 
-    ![RFID HAT](https://shop.sb-components.co.uk/cdn/shop/files/1_37.png?v=1727765023&width=150)
+    ![zero-relay-2-channel](https://shop.sb-components.co.uk/cdn/shop/files/1_37.png?v=1727765023&width=150)
   
   * [1.28 Round Touch LCD HAT](https://shop.sb-components.co.uk/products/1-28-round-touch-lcd-hat-for-raspberry-pi)
 
@@ -192,11 +183,11 @@ This GitHub provides getting started instructions to use StackyFi board.
 
     ![zero-barcode-hat](https://shop.sb-components.co.uk/cdn/shop/products/0.jpg?v=1669181323&width=150)
     
-  * [Zero Barcode HAT](https://shop.sb-components.co.uk/products/stackypi)
+  * [StackyPi - Powered by Pico RP2040](https://shop.sb-components.co.uk/products/stackypi)
 
-    ![zero-barcode-hat](https://shop.sb-components.co.uk/cdn/shop/products/StackyPi.png?v=1648531908&width=150)
+    ![stackypi](https://shop.sb-components.co.uk/cdn/shop/products/StackyPi.png?v=1648531908&width=150)
 
-    
+
 ## Product License
 
 This is ***open source*** product. Kindly check LICENSE.md file for more information.
