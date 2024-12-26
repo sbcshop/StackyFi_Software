@@ -33,20 +33,10 @@ This GitHub provides getting started instructions to use StackyFi board.
 - **Additional Storage** : TFcard support
 - **Working Temperature** : -20°C ~ +70°C
   
-<!--
 ## Getting Started with StackyFi
 ### Pinout
-<img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/EnkFi_7.5_pinout.png" />
+<img src= "https://github.com/sbcshop/StackyFi_Software/blob/main/images/StackyFi_Pinout.png" />
 
-| | | |
-|--|--|--|
-|(1) Power LED          | (7) Buzzer                      | (13) Boot Button |
-|(2) Charging Status    | (8) GPIOs Breakout              | (14) Reset Button |
-|(3) Battery Connector  | (9) TF card slot                | (15) Programmable Buttons |
-|(4) E-paper connector  | (10) Native USB (USB_D+/USB_D-) | (16) Programmable Buttons  |
-|(5) DS3231 RTC         | (11) Serial USB                 | (17) 7.5” E-Paper Display |
-|(6) Coin Cell Holder   | (12) ESP32 S3 WROOM-1           | |
--->
 
 ### Interfacing Details
 
@@ -74,10 +64,10 @@ This GitHub provides getting started instructions to use StackyFi board.
   | IO39 | SCL | I2C Serial Clock Pin |
 
 - **_Camera interfacing with ESP32_** - Following pins consumed when camera connected with StackyFi, 
-  | ESP32 | Camera | Function |
+  | ESP32 | Camera OV2640| Pin Type Function |
   |---|---|---|
-  | IO4 | SDA  | SCCB Serial interface Data I/O |
-  | IO5 | SCL | SCCB Serial interface Data I/O |
+  | IO4 | SDA/SIO_D  | SCCB serial interface Data I/O |
+  | IO5 | SCL/SIO_C | SCCB serial interface clock input |
   | IO6 | VSYNC | Vertical Synchronization Output |
   | IO7 | HREF | Horizontal Reference Output |
   | IO13 | PCLK   | Pixel Clock Output  |
@@ -145,7 +135,7 @@ This GitHub provides getting started instructions to use StackyFi board.
 ### 3. Testing First Code
    - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/StackyFi_Software/tree/main/examples) in github which you can download and try. 
    - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on EnkFi board.
-     <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/upload_process.gif">
+     <img src="https://github.com/sbcshop/StackyFi_Software/blob/main/images/upload_code.gif">
    - Checkout other examples below and build your own custom program codes using those references.
 
 ### Example Codes
