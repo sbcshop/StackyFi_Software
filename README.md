@@ -81,11 +81,10 @@ This GitHub provides getting started instructions to use StackyFi board.
   | IO9 | Y3 | Video Port Output bit[3] |
   | IO11 | Y2 | Video Port Output bit[2]  |
   
-<!--  
-- **_40Pin Standard Header Pin Compare**
-  <img src= "https://github.com/sbcshop/StackyFi_Software/blob/main/images/StackyFi_Pinout.png" />
--->
-  
+- **_40Pin Standard Header Pin Compare_**: useful when using any Raspberry Pi HAT with StackyFi to decide corresponding GPIOs utilized. Camera and SDcard pins only consumed when connected otherwise free to use as normal GPIOs.
+
+  <img src= "https://github.com/sbcshop/StackyFi_Software/blob/main/images/PINcompare_RPi_StackyFi.png" />
+
 ### 1. Configure and Setup Development Environment
    - Download Arduino IDE from [official site](https://www.arduino.cc/en/software) and install into your system. We have use Arduino IDE 1.8.19
    - Once installation done will add ESP32 S3 board support into IDE, for this first you need to add below link into preference:
@@ -141,8 +140,8 @@ This GitHub provides getting started instructions to use StackyFi board.
    - Checkout other examples below and build your own custom program codes using those references.
 
 ### Example Codes
-   - [Example 1](https://github.com/sbcshop/StackyFi_Software/tree/main/examples/Demo_IMU) : Onboard IMU QMI8658 Demo to read accelerometer, Gyro and temperature Data.
-   - [Example 2](https://github.com/sbcshop/StackyFi_Software/tree/main/examples/RGB_LED_Demo) : Play with onboard RGB LED.
+   - [Example 1](https://github.com/sbcshop/StackyFi_Software/tree/main/examples/Demo_IMU/Demo_IMU.ino) : Onboard IMU QMI8658 Demo to read accelerometer, Gyro and temperature Data.
+   - [Example 2](https://github.com/sbcshop/StackyFi_Software/blob/main/examples/RGB_LED_Demo/RGB_LED_Demo.ino) : Play with onboard RGB LED.
    - [Example 3](https://github.com/sbcshop/StackyFi_Software/tree/main/examples/CameraWebServer) : Camera WebServer demo to test OV2640 camera module  
     and more [here](https://github.com/sbcshop/StackyFi_Software/tree/main/examples)
 
