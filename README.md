@@ -26,10 +26,10 @@ This GitHub provides getting started instructions to use StackyFi board.
 - **Working mode** : Support STA/AP/STA+AP 
 - **Board Supply Voltage** : 5V 
 - **Operating Pin Voltage** : 3.3V 
-- **6D MEMS IMU** : QMI8658 (3-axis accelerometer, 3-axis gyroscope)
+- **6D MEMS IMU** : [QMI8658](https://github.com/sbcshop/StackyFi_Software/blob/main/documents/QMI8658C_datasheet.pdf) (3-axis accelerometer, 3-axis gyroscope)
 - **Battery Connector** : Supports 3.7V Lithium ion battery  
 - **RGB LED** : WS2812B
-- **Camera Compatible** : OV2640 Camera Module 2MP
+- **Camera Compatible** : [OV2640](https://github.com/sbcshop/StackyFi_Software/blob/main/documents/OV2640DS_datasheet.pdf) Camera Module 2MP
 - **Additional Storage** : TFcard support
 - **Working Temperature** : -20°C ~ +70°C
   
@@ -155,6 +155,8 @@ This GitHub provides getting started instructions to use StackyFi board.
   * [ESP32 S3 Hardware Reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/hw-reference/index.html)
   * [ESP32 S3 Datasheet](https://github.com/sbcshop/3.2_Touchsy_ESP-32_Capacitive_Software/blob/main/documents/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf)
   * [Arduino IDE 1 overview](https://docs.arduino.cc/software/ide-v1/tutorials/Environment)
+  * [QMI8658 IMU Datasheet](https://github.com/sbcshop/StackyFi_Software/blob/main/documents/QMI8658C_datasheet.pdf)
+  * [OV2640 Camera Datasheet](https://github.com/sbcshop/StackyFi_Software/blob/main/documents/OV2640DS_datasheet.pdf) 
        
 
 ## Related Products  
